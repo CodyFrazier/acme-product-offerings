@@ -1,7 +1,10 @@
-#products {
+body > h1{
 	display: flex;
-	flex-flow: wrap column;
 	justify-content: center;
+}
+#products {
+	flex-flow: wrap column;
+	align-content: flex-start;
 }
 .product-card {
 	display: flex;
@@ -9,6 +12,7 @@
 	align-items: center;
 	color: white;
 	padding: 1rem;
+	margin: .5rem;
 	max-width: 450px;
 	min-width: 450px;
 	border-radius: 10px;
@@ -17,9 +21,16 @@
 	box-sizing: border-box;
 }
 
-@media screen and (min-width: 480px){
+@media screen and (min-width: 481px){
+	.product-card{
+		max-width: 500px;
+		min-width: 500px;
+	}
+}
+@media screen and (min-width: 769px){
 	#products{
 		display: flex;
-		flex-flow: wrap row;
+		flex-direction: row;
+		justify-content: center;
 	}
 }

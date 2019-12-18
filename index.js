@@ -10,13 +10,6 @@ async function loadData(){
 			return response.json();
 		})
 	);
-	
-	//***************************************************************
-	console.log(products);		//properly displayed.
-	console.log(companies);		//properly displayed.
-	console.log(offerings);		//properly displayed.
-	//***************************************************************
-	
 	renderProducts(products, companies, offerings);
 };
 
@@ -39,7 +32,23 @@ function renderProducts(products, companies, offerings){
 			<ul>${ offerList }</ul>
 			</div>`;
 	}).join('');
-	
 };
 
 loadData();
+let singleDisplay = false;
+document.querySelector('#products').addEventListener('click', ({ target }) => {
+	if(target.tagName === 'H2'){
+		const productArr = document.querySelectorAll('.product-card');
+		productArr.forEach(product => {
+			if(product !== target.parentNode && !singleDisplay){
+				product.style.display = 'none';
+			}else{
+				product.style.display = 'flex';
+			}
+		});
+	target.style.display = 'flex';
+	singleDisplay ? singleDisplay = false : singleDisplay = true;
+});
+
+
+
