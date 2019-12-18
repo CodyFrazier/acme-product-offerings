@@ -1,11 +1,25 @@
 #products {
 	display: flex;
-	flex-wrap: wrap;
+	flex-flow: wrap column;
+	justify-content: center;
 }
 .product-card {
+	display: flex;
+	flex-flow: wrap column;
+	align-items: center;
 	color: white;
-	width: 33.33%;
+	padding: 1rem;
+	max-width: 450px;
+	min-width: 450px;
+	border-radius: 10px;
 	background-color: tomato;
 	border: 5px solid #fff;
 	box-sizing: border-box;
+}
+
+@media screen and (min-width: 480px){
+	#products{
+		display: flex;
+		flex-flow: wrap row;
+	}
 }
