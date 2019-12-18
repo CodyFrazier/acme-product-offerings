@@ -46,8 +46,9 @@ document.querySelector('#products').addEventListener('click', ({ target }) => {
 				product.style.display = 'flex';
 			}
 		});
-	target.style.display = 'flex';
-	singleDisplay ? singleDisplay = false : singleDisplay = true;
+		target.style.display = 'flex';
+		singleDisplay ? singleDisplay = false : singleDisplay = true;
+	}
 });
 
 
