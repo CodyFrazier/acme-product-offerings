@@ -1,0 +1,11 @@
+#products {
+	display: flex;
+	flex-wrap: wrap;
+}
+.product-card {
+	color: white;
+	width: 33.33%;
+	background-color: tomato;
+	border: 5px solid #fff;
+	box-sizing: border-box;
+}
