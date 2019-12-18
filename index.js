@@ -8,9 +8,16 @@ const loadData = async () => {
 		fetch(`${API}offerings`)
 	]);
 	const [ products, companies, offerings ] = await Promise.all(
-		responses.map((response) => response.json());
-	renderProducts();
+		responses.map(function(response) {
+			return response.json();
+		})
+	);
+
+	console.log(products);
+	console.log(companies);
+	console.log(offerings);
 };
+
 loadData();
 
 const displayList = document.querySelector('#products');
