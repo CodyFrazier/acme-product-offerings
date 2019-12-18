@@ -28,14 +28,14 @@ function renderProducts(products, companies, offerings){
 			coms = companies.filter(company => {
 				return company.id === offer.companyId;
 			});
-			acc += `<li>Offered by: ${ coms[0].name } at ${ offer.price }</li>`;
+			acc += `<li>Offered by: ${ coms[0].name } at $${ offer.price.toFixed(2) }</li>`;
 			return acc;
 		}, ``);
 		return `
 			<div class='product-card'>
 			<h2 style='text-decoration:underline'>${ product.name }</h2>
 			<div>${ product.description }</div><br>
-			<div>$${ product.suggestedPrice }.00</div>
+			<div>$${ product.suggestedPrice.toFixed(2) }</div>
 			<ul>${ offerList }</ul>
 			</div>`;
 	}).join('');
