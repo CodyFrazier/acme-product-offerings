@@ -1,33 +1,33 @@
-let id = '';
-let data = [];
-const product = 'https://acme-users-api-rev.herokuapp.com/api/products';
-const companies = 'https://acme-users-api-rev.herokuapp.com/api/companies';
-const offerings = 'https://acme-users-api-rev.herokuapp.com/api/offerings';
-const dataSteal = async () => {
-	const responses = await Promise.all([ fetch(product), fetch(companies), fetch(offerings) ]);
-	const [ productList, companyList, offeringList ] = await Promise.all(responses.map((response) => response.json()));
-	productList.forEach((product) => {
-		data.push(product);
-	});
-	render();
+const API = 'https://acme-users-api-rev.herokuapp.com/api/';
+const productData = [];
+
+const loadData = async () => {
+	const responses = await Promise.all([
+		fetch(`${API}products`),
+		fetch(`${API}companies`),
+		fetch(`${API}offerings`)
+	]);
+	const [ products, companies, offerings ] = await Promise.all(
+		responses.map((response) => response.json());
+	renderProducts();
 };
-dataSteal();
+loadData();
 
 const displayList = document.querySelector('#products');
 
-const render = () => {
-	const html = data
+const renderProducts = () => {
+	const html = productList
 		.map(
-			(datum) =>
+			(entry) =>
 				`<div class='product-card'>
-      <div>${datum.name}</div>
-      <div>${datum.description}</div>
-      <div>$${datum.suggestedPrice}</div>
+      <div>${entry.name}</div>
+      <div>${entry.description}</div>
+      <div>${entry.suggestedPrice}</div>
     </div>`
 		)
 		.join('');
 	displayList.innerHTML = html;
 };
 
-console.log(data);
-render();
+console.log(productData);
+renderProducts();
